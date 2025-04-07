@@ -1,0 +1,59 @@
+@import "@fontsource/fira-code";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You can add the others (Light, Medium, Regular) similarly */
+
+/* html {
+  @apply antialiased  bg-gradient-to-br  from-blue-50 to-indigo-100;
+} */
+
+* {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.leaflet-control-attribution {
+  display: none !important;
+}
+.container {
+  @apply mx-auto;
+}
+
+input,
+textarea {
+  @apply focus:outline-none focus:ring-2 focus:ring-indigo-400;
+}
+
+.glass {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out both;
+}
+
+/* globals.css */
+body .syntaxhighlighter code,
+body .syntaxhighlighter .gutter {
+  font-size: 18px !important;
+  font-family: "Fira Code", monospace !important;
+  line-height: 1.5 !important;
+}
