@@ -7,7 +7,11 @@ import LineNumbers from "../../components/ui/LineNumbers";
 import useSidebarStore from "../../store/useSidebarStore";
 import SocialMediaIcons from "../../components/ui/SocialMediaIcons";
 import useTabStore from "../../store/useTabStore";
-import { LuX } from "react-icons/lu";
+import SortableTab from "../../components/ui/layout/SortableTab";
+import {
+  formatPath,
+  getBreadcrumb,
+} from "../../components/logic/layout/tabUtils";
 
 import {
   DndContext,
@@ -19,50 +23,9 @@ import {
 import {
   arrayMove,
   SortableContext,
-  useSortable,
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
 import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
-
-const SortableTab = ({ tab, activeTab, setActiveTab, closeTab, navigate }) => {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: tab.path });
-
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
-
-  return (
-    <div
-      ref={setNodeRef}
-      {...attributes}
-      {...listeners}
-      style={style}
-      onClick={() => {
-        setActiveTab(tab.path);
-        navigate(tab.path);
-      }}
-      className={`flex justify-center border-border font-code min-w-12 items-center gap-2  px-3 py-1 border rounded-[8px] cursor-pointer ${
-        activeTab === tab.path
-          ? "bg-dark2 hover:bg-dark border-x rounded-none border-border border-0 font-bold"
-          : "bg-dark border-none hover:bg-dark2 text-gray-400"
-      }`}
-    >
-      {tab.name}
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          closeTab(tab.path);
-        }}
-        className="rounded-[5px] hover:bg-dark p-1"
-      >
-        <LuX />
-      </button>
-    </div>
-  );
-};
 
 const MainLayout = () => {
   const sensors = useSensors(
@@ -75,25 +38,11 @@ const MainLayout = () => {
   const location = useLocation();
   const isSidebarOpen = useSidebarStore((state) => state.isSidebarOpen);
 
-  const path = location.pathname
-    .split("/")
-    .filter(Boolean)
-    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
-    .join(" > ");
-  const breadcrumb = `Portfolio > ${path || "Home"}`;
+  const breadcrumb = getBreadcrumb(location.pathname);
 
   useEffect(() => {
     const pathname = location.pathname;
-    const displayName =
-      pathname === "/"
-        ? "Home"
-        : pathname
-            .split("/")
-            .filter(Boolean)
-            .map(
-              (segment) => segment.charAt(0).toUpperCase() + segment.slice(1)
-            )
-            .join(" > ");
+    const displayName = formatPath(pathname);
 
     if (!tabs.find((tab) => tab.path === pathname)) {
       openTab(displayName, pathname);
@@ -113,13 +62,12 @@ const MainLayout = () => {
     if (active.id !== over?.id) {
       const oldIndex = tabs.findIndex((t) => t.path === active.id);
       const newIndex = tabs.findIndex((t) => t.path === over?.id);
-      const reordered = arrayMove(tabs, oldIndex, newIndex);
-      reorderTabs(reordered);
+      reorderTabs(arrayMove(tabs, oldIndex, newIndex));
     }
   };
 
   return (
-    <div className="w-full  h-screen bg-dark2 flex flex-col">
+    <div className="w-full h-screen bg-dark2 flex flex-col">
       <div className="w-full text-white border-b border-border bg-dark h-[5%]">
         <Header />
       </div>
