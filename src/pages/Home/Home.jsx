@@ -70,7 +70,7 @@ const Home = () => {
       </div>
       <div className=" border-l border-border ml-5 shadow-shadowLeft flex justify-start items-start  h-full">
         <div className=" w-[45px]">
-          <LineNumbers count={25} />
+          <LineNumbers count={28} />
         </div>
         <div>
           <div className="syntaxhighlighter">

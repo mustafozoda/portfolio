@@ -67,12 +67,12 @@ const MainLayout = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-dark2 flex flex-col">
+    <div className="w-full h-screen container bg-dark2 flex flex-col">
       <div className="w-full text-white border-b border-border bg-dark h-[5%]">
         <Header />
       </div>
 
-      <div className="middle-box flex flex-1 flex-row">
+      <div className="middle-box flex flex-1 h-[90%]  flex-row">
         <div className="left-side-box-for-sidebar border-border flex border-r h-full text-white bg-dark shadow-lg">
           <div className="social-media-icons border-border border-r">
             <SocialMediaIcons />
@@ -121,7 +121,7 @@ const MainLayout = () => {
           </div>
           <div className="under-nav-path w-full flex flex-row h-[92%]">
             <div className="numbers border-border border-r w-[45px]">
-              <LineNumbers count={25} />
+              <LineNumbers count={28} />
             </div>
             <div className="w-full h-full">
               <Outlet />
@@ -130,7 +130,7 @@ const MainLayout = () => {
         </div>
       </div>
 
-      <div className="w-full bg-dark h-[4%]">
+      <div className="w-full bg-dark h-[5%]">
         <Footer />
       </div>
     </div>
