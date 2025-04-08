@@ -14,6 +14,7 @@ import {
   File,
   FileSearch,
   FileType,
+  FolderOpen,
 } from "lucide-react";
 
 const getFileIcon = (label) => {
@@ -24,12 +25,18 @@ const getFileIcon = (label) => {
   if (label.endsWith(".json")) return <FileJson size={16} />;
   if (label.endsWith(".md")) return <FileText size={16} />;
   if (label.endsWith(".pdf")) return <FileSearch size={16} />;
+  if (label === "Home") return <FolderOpen />;
   return <File size={16} />;
 };
 
 const treeData = [
   {
-    label: "_about-me_",
+    label: "Home",
+    to: "/",
+    children: [{ label: "hey" }],
+  },
+  {
+    label: "About Me",
     to: "/about",
     children: [
       {
@@ -56,7 +63,7 @@ const treeData = [
     ],
   },
   {
-    label: "_projects_",
+    label: "Projects",
     to: "/projects",
     children: [
       { label: "portfolio-site.jsx", to: "/projects/portfolio" },
@@ -65,7 +72,7 @@ const treeData = [
     ],
   },
   {
-    label: "_skills_",
+    label: "Skills",
     children: [
       { label: "Languages.js", to: "/skills/languages" },
       { label: "Frameworks.js", to: "/skills/frameworks" },
@@ -73,7 +80,7 @@ const treeData = [
     ],
   },
   {
-    label: "_experience_",
+    label: "Experience",
     children: [
       {
         label: "jobs",
@@ -95,7 +102,7 @@ const treeData = [
     ],
   },
   {
-    label: "_contact_",
+    label: "Contact",
     children: [
       { label: "email.js", to: "/contact/email" },
       { label: "socials.tsx", to: "/contact/socials" },

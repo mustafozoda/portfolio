@@ -7,9 +7,7 @@ const useTabStore = create((set) => ({
   openTab: (name, path) =>
     set((state) => {
       const exists = state.tabs.find((tab) => tab.path === path);
-      const newTabs = exists
-        ? state.tabs
-        : [...state.tabs, { name, path }];
+      const newTabs = exists ? state.tabs : [...state.tabs, { name, path }];
       return {
         tabs: newTabs,
         activeTab: path,
@@ -32,6 +30,8 @@ const useTabStore = create((set) => ({
     }),
 
   setActiveTab: (path) => set({ activeTab: path }),
+
+  reorderTabs: (newTabs) => set({ tabs: newTabs }),
 }));
 
 export default useTabStore;
