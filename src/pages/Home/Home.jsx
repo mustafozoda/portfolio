@@ -23,7 +23,7 @@ function greet(visitor) {
 const guest = "curious dev";
 greet(guest);
 
-// Tip: run \`contact()\` to reach the terminal wizard 🧙
+// Tip: run contact() to reach the terminal wizard 🧙
 `;
 
 const codeMotiv = `
@@ -68,8 +68,8 @@ const Home = () => {
           {codeString}
         </SyntaxHighlighter>
       </div>
-      <div className=" border-l border-border flex justify-start items-start  h-full">
-        <div className="numbers w-[45px]">
+      <div className=" border-l border-border ml-5 shadow-shadowLeft flex justify-start items-start  h-full">
+        <div className=" w-[45px]">
           <LineNumbers count={25} />
         </div>
         <div>

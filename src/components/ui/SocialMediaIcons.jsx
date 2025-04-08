@@ -67,7 +67,6 @@ const SocialMediaIcons = () => {
           target="_blank"
           rel="noopener noreferrer"
           title={name}
-          className="hover:text-blue-400 transition-colors  duration-300"
         >
           {icon}
         </a>

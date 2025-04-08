@@ -168,7 +168,7 @@ const TreeNode = ({ node, level = 0 }) => {
               {child.to ? (
                 <Link
                   to={child.to}
-                  className="hover:bg-gray-700 px-2 py-[2px] text-sm flex items-center gap-2"
+                  className="hover:bg-gray-700 hover:fixed px-2 py-[2px] text-sm flex items-center gap-2"
                   style={{ paddingLeft: (level + 1) * 10 }}
                   onClick={(e) => {
                     e.stopPropagation();

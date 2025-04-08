@@ -42,10 +42,10 @@ export default {
         full: '9999px',
       },
 
-      //  Shadows
       boxShadow: {
         soft: '0 2px 12px rgba(0, 0, 0, 0.06)',
         smooth: '0 6px 20px rgba(0, 0, 0, 0.1)',
+        shadowLeft: '-5px 0px 0px 0px rgba(0, 0, 0, 0.2)',
         glass: '0 8px 32px rgba(31, 38, 135, 0.37)',
       },
 
