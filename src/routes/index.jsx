@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout/MainLayout";
 import Home from "../pages/Home/Home";
 import Projects from "../pages/projects/Projects";
 import NotFound from "../components/ui/NotFound";
-import Msc from "../pages/About-Me/edu/msc";
+import Msc from "../pages/About-Me/edu/Msc";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
