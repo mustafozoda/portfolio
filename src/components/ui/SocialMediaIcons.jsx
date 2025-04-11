@@ -4,46 +4,40 @@ import useSidebarStore from "../../store/useSidebarStore";
 import {
   FaInstagram,
   FaWhatsapp,
-  FaTwitter,
+  FaGithub,
   FaFacebookF,
   FaLinkedinIn,
-  FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 const icons = [
   {
-    icon: <FaInstagram />,
-    link: "https://instagram.com",
-    name: "Instagram",
-  },
-  {
-    icon: <FaWhatsapp />,
-    link: "https://whatsapp.com",
-    name: "WhatsApp",
-  },
-  {
-    icon: <FaTwitter />,
-    link: "https://twitter.com",
-    name: "Twitter",
-  },
-  {
-    icon: <FaFacebookF />,
-    link: "https://facebook.com",
-    name: "Facebook",
-  },
-  {
     icon: <FaLinkedinIn />,
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/in/mustaffozoda",
     name: "LinkedIn",
   },
   {
-    icon: <FaYoutube />,
-    link: "https://youtube.com",
-    name: "YouTube",
+    icon: <FaGithub />,
+    link: "https://github.com/mustafozoda",
+    name: "GitHub",
+  },
+  {
+    icon: <FaWhatsapp />,
+    link: "https://wa.me/992888999864?text=Hi%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20chat.",
+    name: "WhatsApp",
+  },
+  {
+    icon: <FaInstagram />,
+    link: "https://www.instagram.com/mustaffozoda/",
+    name: "Instagram",
+  },
+  {
+    icon: <FaFacebookF />,
+    link: "https://www.facebook.com/mustaffozoda/",
+    name: "Facebook",
   },
   {
     icon: <FaXTwitter />,
-    link: "https://x.com",
+    link: "https://x.com/mustaffozoda/",
     name: "X",
   },
 ];
@@ -52,7 +46,7 @@ const SocialMediaIcons = () => {
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
   const isSidebarOpen = useSidebarStore((state) => state.isSidebarOpen);
   return (
-    <div className="flex flex-col gap-6 text-xl text-white p-4 items-center">
+    <div className="flex flex-col items-center gap-6 p-4 text-xl text-white">
       <span onClick={toggleSidebar} className="cursor-pointer">
         {isSidebarOpen ? (
           <PanelLeftClose size={20} />

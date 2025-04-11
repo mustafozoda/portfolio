@@ -2,6 +2,7 @@ import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import LineNumbers from "../../../components/ui/LineNumbers";
+import { getBreadcrumb } from "../../../components/logic/layout/tabUtils";
 
 const mscCode = `
 // Loading academic credentials...
@@ -54,18 +55,21 @@ if degree == "complete":
     print("Level up! 🎓")
 
 # — written by a curious mind: Mustafozoda Sharifbek 👨‍💻
-# — written by a curious mind: Mustafozoda Sharifbek 👨‍💻
 `;
 
 const EducationInfo = () => {
+  const breadcrumb = getBreadcrumb(location.pathname);
   return (
     <div className="flex h-full w-[100%]">
       <div className="h-full w-[50%]">
-        <div className="syntaxhighlighter flex h-full w-[100%] overflow-y-hidden overflow-x-scroll">
-          <div className="w-[8%] border-r border-border">
+        <div className="flex h-[3%] items-center justify-start px-5 font-code text-xs text-gray-400">
+          mustafozoda {">"} {breadcrumb}
+        </div>
+        <div className="syntaxhighlighter flex h-[97%] w-[100%] overflow-x-auto overflow-y-hidden">
+          <div className="min-w-[50px] border-r border-border">
             <LineNumbers count={28} />
           </div>
-          <div className="w-[92%]">
+          <div className="w-[100%]">
             <SyntaxHighlighter
               language="javascript"
               style={vscDarkPlus}
@@ -84,12 +88,15 @@ const EducationInfo = () => {
           </div>
         </div>
       </div>
-      <div className="h-full w-[50%]">
-        <div className="syntaxhighlighter flex h-full w-[100%] overflow-x-auto overflow-y-hidden shadow-shadowLeft">
-          <div className="w-[8%] border-x border-border">
+      <div className="h-full w-[50%] border-l border-border">
+        <div className="flex h-[3%] items-center justify-start px-5 font-code text-xs text-gray-400">
+          mustafozoda {">"} {breadcrumb}
+        </div>
+        <div className="syntaxhighlighter flex h-[97%] w-[100%] overflow-x-auto overflow-y-hidden">
+          <div className="min-w-[50px] border-r border-border">
             <LineNumbers count={28} />
           </div>
-          <div className="w-[92%]">
+          <div className="w-[100%]">
             <SyntaxHighlighter
               language="python"
               style={vscDarkPlus}

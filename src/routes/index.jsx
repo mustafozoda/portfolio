@@ -5,12 +5,13 @@ import Home from "../pages/Home/Home";
 import Projects from "../pages/projects/Projects";
 import NotFound from "../components/ui/NotFound";
 import EducationInfo from "../pages/About-Me/edu/EducationInfo";
+import Intro from "../pages/Intro/Intro";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
-      <Route index element={<Home />} />
-      {/* <Route path="about" element={<Bio />} /> */}
+      <Route index element={<Intro />} />
+      <Route path="home" element={<Home />} />
       <Route
         path="about-me/education/education-info"
         element={<EducationInfo />}

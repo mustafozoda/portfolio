@@ -2,6 +2,7 @@ import { Backpack } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import LineNumbers from "../../components/ui/LineNumbers";
+import { getBreadcrumb } from "../../components/logic/layout/tabUtils";
 
 const codeString = `
 // importing portfolio core module...
@@ -51,29 +52,46 @@ for day in range(life):
 # progress > perfection
 `;
 const Home = () => {
+  const breadcrumb = getBreadcrumb(location.pathname);
+
   return (
-    <div className="flex h-full w-full flex-row">
-      <div className="syntaxhighlighter">
-        <SyntaxHighlighter
-          language="javascript"
-          style={vscDarkPlus}
-          showLineNumbers={false}
-          customStyle={{
-            background: "none",
-            padding: "0px",
-            paddingLeft: "20px",
-            margin: "0px",
-          }}
-        >
-          {codeString}
-        </SyntaxHighlighter>
-      </div>
-      <div className="ml-5 flex h-full items-start justify-start border-l border-border shadow-shadowLeft">
-        <div className="w-[45px]">
-          <LineNumbers count={28} />
+    <div className="flex h-full w-[100%]">
+      <div className="h-full w-[50%]">
+        <div className="flex h-[3%] items-center justify-start px-5 font-code text-xs text-gray-400">
+          mustafozoda {">"} {breadcrumb}
         </div>
-        <div>
-          <div className="syntaxhighlighter">
+        <div className="syntaxhighlighter flex h-[97%] w-[100%] overflow-x-auto overflow-y-hidden">
+          <div className="min-w-[50px] border-r border-border">
+            <LineNumbers count={28} />
+          </div>
+          <div className="w-[100%]">
+            <SyntaxHighlighter
+              language="javascript"
+              style={vscDarkPlus}
+              showLineNumbers={false}
+              customStyle={{
+                background: "none",
+                padding: "0px",
+                paddingLeft: "20px",
+                margin: "0px",
+                overflow: "unset",
+                width: "100%",
+              }}
+            >
+              {codeString}
+            </SyntaxHighlighter>
+          </div>
+        </div>
+      </div>
+      <div className="h-full w-[50%] border-l border-border">
+        <div className="flex h-[3%] items-center justify-start px-5 font-code text-xs text-gray-400">
+          mustafozoda {">"} {breadcrumb}
+        </div>
+        <div className="syntaxhighlighter flex h-[97%] w-[100%] overflow-x-auto overflow-y-hidden">
+          <div className="min-w-[50px] border-r border-border">
+            <LineNumbers count={28} />
+          </div>
+          <div className="w-[100%]">
             <SyntaxHighlighter
               language="cpp"
               style={vscDarkPlus}
@@ -83,12 +101,12 @@ const Home = () => {
                 padding: "0px",
                 paddingLeft: "20px",
                 margin: "0px",
+                overflow: "unset",
+                width: "100%",
               }}
             >
               {codeMotiv}
             </SyntaxHighlighter>
-          </div>
-          <div className="syntaxhighlighter">
             <SyntaxHighlighter
               language="python"
               style={vscDarkPlus}
@@ -98,6 +116,8 @@ const Home = () => {
                 padding: "0px",
                 paddingLeft: "20px",
                 margin: "0px",
+                overflow: "unset",
+                width: "100%",
               }}
             >
               {codePy}

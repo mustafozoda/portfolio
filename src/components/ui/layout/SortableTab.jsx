@@ -21,10 +21,10 @@ const SortableTab = ({ tab, activeTab, setActiveTab, closeTab, navigate }) => {
         setActiveTab(tab.path);
         navigate(tab.path);
       }}
-      className={`flex justify-center border-border font-code min-w-12 items-center gap-2  px-3 py-1 border rounded-[8px] cursor-pointer ${
+      className={`flex min-w-12 cursor-pointer items-center justify-center gap-2 rounded-[5px] border border-border px-3 py-1 font-code ${
         activeTab === tab.path
-          ? "bg-dark2 hover:bg-dark border-x rounded-none border-border border-0 font-bold"
-          : "bg-dark border-none hover:bg-dark2 text-gray-400"
+          ? "rounded-none border-0 border-x border-border bg-dark2 font-bold hover:bg-dark"
+          : "border-none bg-dark text-gray-400 hover:bg-dark2"
       }`}
     >
       {tab.name}
@@ -33,7 +33,7 @@ const SortableTab = ({ tab, activeTab, setActiveTab, closeTab, navigate }) => {
           e.stopPropagation();
           closeTab(tab.path);
         }}
-        className="rounded-[5px] hover:bg-dark p-1"
+        className="rounded-[5px] p-1 hover:bg-dark"
       >
         <LuX />
       </button>

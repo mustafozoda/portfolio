@@ -1,23 +1,8 @@
-import {
-  FileCode,
-  FileJson,
-  FileText,
-  FileSearch,
-  Languages,
-  FolderOpen,
-  House,
-  GraduationCap,
-} from "lucide-react";
+import { Languages, FolderOpen, House, GraduationCap } from "lucide-react";
 import { FaUserSecret } from "react-icons/fa6";
 import { BsPersonVcard } from "react-icons/bs";
 import { MdInterests } from "react-icons/md";
-// shared icons
-// const <FaUserSecret/> = <FileCode size={16} />;
-// const jsonIcon = <FileJson size={16} />;
-// const <FaUserSecret/> = <FileText size={16} />;
-// const <FaUserSecret/> = <FileSearch size={16} />;
-// const <FaUserSecret/> = <File size={16} />;
-// const <FolderOpen size={16}/> = <FolderOpen size={16} />;
+import { CgWebsite } from "react-icons/cg";
 
 const treeData = [
   {
@@ -26,7 +11,7 @@ const treeData = [
     children: [
       {
         label: "index.jsx",
-        to: "/",
+        to: "/home",
         icon: <House size={16} color="#0bcf07" />,
       },
     ],
@@ -39,11 +24,11 @@ const treeData = [
         label: "Education/",
         icon: <FolderOpen size={16} />,
         children: [
-          {
-            label: "bsc-computer-science.md",
-            to: "/about-me/education/bsc-computer-science",
-            icon: <GraduationCap size={16} color="#00ffff" />,
-          },
+          // {
+          //   label: "bsc-computer-science.md",
+          //   to: "/about-me/education/bsc-computer-science",
+          //   icon: <GraduationCap size={16} color="#00ffff" />,
+          // },
           {
             label: "EducationInfo.jsx",
             to: "/about-me/education/education-info",
@@ -151,6 +136,11 @@ const treeData = [
         icon: <FaUserSecret />,
       },
     ],
+  },
+  {
+    label: "Intro.js",
+    icon: <CgWebsite size={16} color="#00FF00" />,
+    to: "/",
   },
 ];
 

@@ -1,6 +1,6 @@
 export const formatPath = (pathname) => {
   return pathname === "/"
-    ? "Home"
+    ? "Introduction"
     : pathname
       .split("/")
       .filter(Boolean)
