@@ -19,9 +19,10 @@
 .leaflet-control-attribution {
   display: none !important;
 }
-.container {
-  @apply mx-auto;
-}
+/* .container {
+  padding: 0px;
+  margin: 0px;
+} */
 
 input,
 textarea {
@@ -56,4 +57,37 @@ body .syntaxhighlighter .gutter {
   font-size: 18px !important;
   font-family: "Fira Code", monospace !important;
   line-height: 1.5 !important;
+}
+
+/* .scroll-bar-class {
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+  scrollbar-width: 50px;
+  scrollbar-color: #181818 #000000;
+} */
+/* For Webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  /* width: 1px; */
+  height: 15px;
+  /* display: none; */
+}
+
+::-webkit-scrollbar-track {
+  /* background: #1e1e1e; */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #444;
+  /* border-radius: 4px; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+.scroll-container {
+  overflow: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #444 #1e1e1e; /* Thumb and Track for Firefox */
 }

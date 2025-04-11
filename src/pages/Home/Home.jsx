@@ -52,8 +52,8 @@ for day in range(life):
 `;
 const Home = () => {
   return (
-    <div className="w-full flex flex-row h-full">
-      <div className=" syntaxhighlighter">
+    <div className="flex h-full w-full flex-row">
+      <div className="syntaxhighlighter">
         <SyntaxHighlighter
           language="javascript"
           style={vscDarkPlus}
@@ -68,8 +68,8 @@ const Home = () => {
           {codeString}
         </SyntaxHighlighter>
       </div>
-      <div className=" border-l border-border ml-5 shadow-shadowLeft flex justify-start items-start  h-full">
-        <div className=" w-[45px]">
+      <div className="ml-5 flex h-full items-start justify-start border-l border-border shadow-shadowLeft">
+        <div className="w-[45px]">
           <LineNumbers count={28} />
         </div>
         <div>

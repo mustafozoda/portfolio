@@ -3,7 +3,7 @@ import MainLayout from "./layouts/MainLayout/MainLayout";
 
 const App = () => {
   return (
-    <div className="container w-full h-screen">
+    <div>
       <MainLayout />
     </div>
   );

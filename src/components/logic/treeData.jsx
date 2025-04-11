@@ -45,8 +45,8 @@ const treeData = [
             icon: <GraduationCap size={16} color="#00ffff" />,
           },
           {
-            label: "msc-computer-science.md",
-            to: "/about-me/education/msc-computer-science",
+            label: "EducationInfo.jsx",
+            to: "/about-me/education/education-info",
             icon: <GraduationCap size={16} color="#00ffff" />,
           },
         ],

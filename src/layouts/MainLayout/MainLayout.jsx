@@ -29,7 +29,7 @@ import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
 
 const MainLayout = () => {
   const sensors = useSensors(
-    useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
   );
 
   const { tabs, activeTab, setActiveTab, closeTab, openTab, reorderTabs } =
@@ -67,70 +67,69 @@ const MainLayout = () => {
   };
 
   return (
-    <div className="w-full h-screen container bg-dark2 flex flex-col">
-      <div className="w-full text-white border-b border-border bg-dark h-[5%]">
+    <div className="container m-0 mx-auto flex h-screen flex-col bg-dark p-0">
+      <div className="h-[5%] w-full border-b border-border bg-dark text-white">
         <Header />
       </div>
 
-      <div className="middle-box flex flex-1 h-[90%]  flex-row">
-        <div className="left-side-box-for-sidebar border-border flex border-r h-full text-white bg-dark shadow-lg">
-          <div className="social-media-icons border-border border-r">
-            <SocialMediaIcons />
-          </div>
-          <div className="h-full flex flex-col">
-            <div className=""></div>
+      <div className="middle-box flex h-[90%] w-[100%] flex-row">
+        <div className="social-media-icons flex w-[50px] items-start justify-center border-r border-border">
+          <SocialMediaIcons />
+        </div>
+        <div className="h-full min-w-0 flex-1">
+          <div className="flex h-full w-[100%] border border-border">
+            {/* Sidebar with dynamic width */}
             <div
-              className={`transition-all duration-300 top-0 left-0 ${
-                isSidebarOpen ? "w-44" : "w-0 overflow-hidden"
+              className={`left-side-box-for-sidebar h-full border-r border-border bg-dark text-white transition-all duration-300 ${
+                isSidebarOpen ? "w-44" : "w-0"
               }`}
             >
               <Sidebar />
             </div>
-          </div>
-        </div>
 
-        <div className="right-side-box-for-outlet bg-dark2 flex-col flex justify-center items-center flex-grow h-full">
-          <div className="nav-path flex-col w-full h-[8%] flex text-xs text-gray-400 font-code">
-            <DndContext
-              sensors={sensors}
-              collisionDetection={closestCenter}
-              onDragEnd={handleDragEnd}
-              modifiers={[restrictToHorizontalAxis]}
-            >
-              <SortableContext
-                items={tabs.map((t) => t.path)}
-                strategy={horizontalListSortingStrategy}
-              >
-                <div className="h-[60%] border-border font-code  border-b px-4 flex items-center gap-1 overflow-x-auto">
-                  {tabs.map((tab) => (
-                    <SortableTab
-                      key={tab.path}
-                      tab={tab}
-                      activeTab={activeTab}
-                      setActiveTab={setActiveTab}
-                      closeTab={closeTab}
-                      navigate={navigate}
-                    />
-                  ))}
+            {/* Right side takes the remaining width */}
+            <div className="right-side-box-for-outlet flex h-full min-w-0 flex-1 flex-col items-center justify-center bg-dark2">
+              <div className="nav-path flex h-[8%] w-full flex-col font-code text-xs text-gray-400">
+                <DndContext
+                  sensors={sensors}
+                  collisionDetection={closestCenter}
+                  onDragEnd={handleDragEnd}
+                  modifiers={[restrictToHorizontalAxis]}
+                >
+                  <SortableContext
+                    items={tabs.map((t) => t.path)}
+                    strategy={horizontalListSortingStrategy}
+                  >
+                    <div className="flex h-[60%] items-center gap-1 overflow-x-auto border-b border-border px-4 font-code">
+                      {tabs.map((tab) => (
+                        <SortableTab
+                          key={tab.path}
+                          tab={tab}
+                          activeTab={activeTab}
+                          setActiveTab={setActiveTab}
+                          closeTab={closeTab}
+                          navigate={navigate}
+                        />
+                      ))}
+                    </div>
+                  </SortableContext>
+                </DndContext>
+                <div className="flex h-[40%] items-center justify-start px-4">
+                  mustafozoda {">"} {breadcrumb}
                 </div>
-              </SortableContext>
-            </DndContext>
-            <div className="h-[40%] flex justify-start items-center px-4">
-              mustafozoda {">"} {breadcrumb}
-            </div>
-          </div>
-          <div className="under-nav-path w-full flex flex-row h-[92%]">
-            <div className="numbers border-border border-r w-[45px]">
-              <LineNumbers count={28} />
-            </div>
-            <div className="w-full h-full">
-              <Outlet />
+              </div>
+
+              <div className="under-nav-path h-[92%] w-[100%] flex-row">
+                <div className="h-full w-[100%]">
+                  <Outlet />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="w-full bg-dark h-[5%]">
+      <div className="h-[5%] w-full bg-dark">
         <Footer />
       </div>
     </div>
