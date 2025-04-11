@@ -52,7 +52,7 @@ const Intro = () => {
             onClick={toggleTerminal}
             className="mt-2 rounded-lg border border-green-400 px-4 py-1 text-sm text-green-300 transition hover:bg-green-500 hover:text-black"
           >
-            Open Terminal
+            Terminal
           </button>
         </div>
       </div>
